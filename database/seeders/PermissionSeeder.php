@@ -72,5 +72,29 @@ class PermissionSeeder extends Seeder
             'name'      => 'Delete User',
             'slug'      => 'app.users.delete'
         ]);
+        //Create Permission for User Management
+
+        $moduleAppEmployee = Module::updateOrCreate(['name'=>'Employee Management']);
+
+        Permission::updateOrCreate([
+            'module_id' =>  $moduleAppEmployee->id,
+            'name'      => 'Access Employee',
+            'slug'      => 'app.employees.index'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' =>  $moduleAppEmployee->id,
+            'name'      => 'Create Employee',
+            'slug'      => 'app.employees.create'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' =>  $moduleAppEmployee->id,
+            'name'      => 'Edit Employee',
+            'slug'      => 'app.employees.edit'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' =>  $moduleAppEmployee->id,
+            'name'      => 'Delete Employee',
+            'slug'      => 'app.employees.delete'
+        ]);
     }
 }

@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index(){
         Gate::authorize('app.users.index');
-        $users = User::latest()->get();
+        $users = User::latest('id')->get();
         return view('backend.users.index',compact('users'));
     }
 

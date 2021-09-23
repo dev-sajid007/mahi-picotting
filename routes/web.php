@@ -59,6 +59,17 @@ Route::group(['as'=>'app.','prefix'=>'app','namespace'=>'backend','middleware'=>
         Route::post('profile/security', 'ProfileController@updatePassword')->name('password.update');
 
     });
+    //Employee
+    Route::group(['as'=>'employees.','prefix'=>'employees'],function(){
+
+        Route::get('/','EmployeeController@index')->name('index');
+        Route::get('/create','EmployeeController@create')->name('create');
+        Route::post('/store','EmployeeController@store')->name('store');
+        Route::get('/edit/{id}','EmployeeController@edit')->name('edit');
+        Route::post('/update/{id}','EmployeeController@update')->name('update');
+        Route::get('/delete/{id}','EmployeeController@delete')->name('delete');
+
+    });
 
 
 });
