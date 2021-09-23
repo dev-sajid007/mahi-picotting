@@ -70,6 +70,17 @@ Route::group(['as'=>'app.','prefix'=>'app','namespace'=>'backend','middleware'=>
         Route::get('/delete/{id}','EmployeeController@delete')->name('delete');
 
     });
+    //Report
+    Route::group(['as'=>'reports.','prefix'=>'reports'],function(){
+
+        Route::get('/','ReportController@index')->name('index');
+        Route::get('/create','ReportController@create')->name('create');
+        Route::post('/store','ReportController@store')->name('store');
+        Route::get('/edit/{id}','ReportController@edit')->name('edit');
+        Route::post('/update/{id}','ReportController@update')->name('update');
+        Route::get('/delete/{id}','ReportController@delete')->name('delete');
+
+    });
 
 
 });
