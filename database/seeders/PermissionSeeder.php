@@ -96,5 +96,29 @@ class PermissionSeeder extends Seeder
             'name'      => 'Delete Employee',
             'slug'      => 'app.employees.delete'
         ]);
+        //Create Permission for Report Management
+
+        $moduleAppReport = Module::updateOrCreate(['name'=>'Report Management']);
+
+        Permission::updateOrCreate([
+            'module_id' =>  $moduleAppReport->id,
+            'name'      => 'Access Report',
+            'slug'      => 'app.reports.index'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' =>  $moduleAppReport->id,
+            'name'      => 'Create Report',
+            'slug'      => 'app.reports.create'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' =>  $moduleAppReport->id,
+            'name'      => 'Edit Report',
+            'slug'      => 'app.reports.edit'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' =>  $moduleAppReport->id,
+            'name'      => 'Delete Report',
+            'slug'      => 'app.reports.delete'
+        ]);
     }
 }
